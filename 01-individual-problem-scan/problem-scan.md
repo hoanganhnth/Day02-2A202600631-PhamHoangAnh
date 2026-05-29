@@ -24,6 +24,15 @@
 
 Dưới đây là **Top 3 vấn đề khả thi nhất, dễ giải quyết và cực kỳ thuận tiện để triển khai dự án nhóm 5 người** dựa trên mức độ sẵn có của dữ liệu và tính phù hợp với AI:
 
+### Top 3
+
+| Rank | Problem | Vì sao chọn | Điều còn chưa chắc |
+|---|---|---|---|
+| 1 | Weekly Report | Workflow rõ, mất nhiều thời gian, có metric tốt | Narrative "đủ tốt" đo thế nào |
+| 2 | Review PRD | Có pain thật, AI có thể giúp đọc/tóm tắt | Quality improvement khó đo |
+| 3 | Slack Search | Nhiều người đau, impact rộng | Data access khó, scope có thể quá lớn |
+
+
 ---
 
 **Chi tiết Card #1 (Học liệu AI cá nhân hóa):**
@@ -173,38 +182,37 @@ graph TD
 
 ---
 
-## 3. Bản Sơ Đồ Quy Trình (Draft Workflow Before/After) cho Card muốn Pitch nhất (Học liệu AI cá nhân hóa - Card #1)
+## 3. Bản Sơ Đồ Quy Trình (Draft Workflow Before/After) cho Card muốn Pitch nhất (Lịch trình Gym cá nhân hóa - Card #3)
 
-Dưới đây là sơ đồ quy trình tối ưu hóa cho **Card #1 - Tìm kiếm học liệu AI phù hợp cấp độ** bằng sơ đồ **Mermaid** trực quan sinh động:
+Dưới đây là sơ đồ quy trình tối ưu hóa cho **Card #3 - Thiết kế lịch trình Gym cá nhân hóa** bằng sơ đồ **Mermaid** trực quan sinh động:
 
-### **CURRENT STATE (Quy trình trước khi áp dụng AI) — Tổng thời gian: 55 phút**
+### **CURRENT STATE (Quy trình trước khi áp dụng AI) — Tổng thời gian: 75 phút**
 
 ```mermaid
 graph TD
-    A([Bắt đầu]) --> B["1. Gõ từ khóa tìm tài liệu trên Google<br/>⏱ 5 phút"]
-    B --> C["2. Đọc lướt qua 4-5 tài liệu khác nhau<br/>⏱ 20 phút"]
-    C --> D["3. Thực hành viết code chạy thử<br/>🔴 BOTTLENECK<br/>⏱ 20 phút"]
-    D --> E["4. Phát hiện tài liệu quá khó hoặc quá dễ<br/>⏱ 10 phút"]
-    E --> F([Kết thúc: Nản lòng hoặc phải search lại])
+    A([Bắt đầu]) --> B["1. Lên mạng tìm video hướng dẫn tập gym<br/>⏱ 20 phút"]
+    B --> C["2. Tự lắp ghép bài tập thành lịch tuần<br/>⏱ 15 phút"]
+    C --> D["3. Ra phòng gym tập thử nghiệm<br/>⏱ 30 phút"]
+    D --> E["4. Bị đau mỏi quá mức hoặc chấn thương<br/>🔴 BOTTLENECK<br/>⏱ 10 phút"]
+    E --> F([Kết thúc: Nản lòng hoặc chấn thương])
 
-    style D fill:#ffcccc,stroke:#ff0000,stroke-width:2px
+    style E fill:#ffcccc,stroke:#ff0000,stroke-width:2px
 ```
 
 ---
 
-### **FUTURE STATE (Quy trình sau khi có sự tham gia của AI) — Tổng thời gian: 13 phút**
+### **FUTURE STATE (Quy trình sau khi có sự tham gia của AI) — Tổng thời gian: 34 phút**
 
 ```mermaid
 graph TD
-    A([Bắt đầu]) --> B["1. Sinh viên trả lời 3 câu hỏi trắc nghiệm<br/>⏱ 2 phút"]
-    B --> C["2️⃣ AI: Đánh giá năng lực & Phân loại cấp độ<br/>⏱ 1 phút"]
-    C --> D["3️⃣ AI: Đề xuất tài liệu khớp trình độ<br/>⏱ 2 phút"]
-    D --> E["4. Sinh viên đọc & thực hành<br/>⏱ 5 phút"]
-    E --> F["5. Phản hồi đánh giá sao<br/>⏱ 3 phút"]
-    F --> G([Kết thúc: Học tập hiệu quả])
+    A([Bắt đầu]) --> B["1. Nhập thông số thể trạng & mục tiêu<br/>⏱ 2 phút"]
+    B --> C["2️⃣ AI: Thiết kế lịch tập & dinh dưỡng chi tiết<br/>⏱ 2 phút"]
+    C --> D["3️⃣ Hướng dẫn tư thế tập an toàn<br/>🔵 HUMAN BOUNDARY<br/>⏱ 15 phút"]
+    D --> E["4. Thực hiện tập tại phòng gym theo lịch<br/>⏱ 15 phút"]
+    E --> F([Kết thúc: Luyện tập khoa học & an toàn])
 
     style C fill:#d4edda,stroke:#28a745,stroke-width:2px
-    style D fill:#d4edda,stroke:#28a745,stroke-width:2px
-    style F fill:#cce5ff,stroke:#004085,stroke-width:2px
+    style D fill:#cce5ff,stroke:#004085,stroke-width:2px
 ```
+
 
