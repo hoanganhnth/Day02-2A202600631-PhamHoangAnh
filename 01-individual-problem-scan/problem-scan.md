@@ -26,29 +26,6 @@ Dưới đây là **Top 3 vấn đề khả thi nhất, dễ giải quyết và 
 
 ---
 
-### ┌──────────────────────────────────────────────┐
-### │ PROBLEM CARD #1 (Được đề xuất nhiều nhất)   │
-### │                                              │
-### │ Problem 1 câu: Sinh viên ngành AI mất nhiều   │
-### │ thời gian tìm kiếm tài liệu học tập phù hợp  │
-### │ với năng lực hiện tại giữa ma trận internet. │
-### │                                              │
-### │ Ai đang đau? Sinh viên, người tự học AI      │
-### │                                              │
-### │ Workflow hiện tại:                           │
-### │ 1. Search Google → 2. Đọc lướt →             │
-### │ 3. Thử thực hành → 4. Bị nản vì quá khó/dễ. │
-### │                                              │
-### │ Bước nghẽn nhất: Bước 2 & 4 (Mất 45 phút/lần)│
-### │                                              │
-### │ Đo thành công bằng gì? Giảm thời gian tìm    │
-### │ tài liệu xuống dưới 10 phút, tài liệu đề xuất│
-### │ có độ khớp năng lực > 80% (đánh giá thử).    │
-### │                                              │
-### │ Quick gut: □ No AI □ Rule  Workflow         │
-### │            □ Agent □ Chưa biết               │
-### └──────────────────────────────────────────────┘
-
 **Chi tiết Card #1 (Học liệu AI cá nhân hóa):**
 * **Problem 1 câu:** Sinh viên tự học AI mất nhiều giờ liền tìm kiếm và chọn lọc tài liệu học tập đúng với cấp độ năng lực hiện tại của mình.
 * **Actor:** Sinh viên ngành Trí tuệ nhân tạo, người tự học công nghệ.
@@ -65,29 +42,32 @@ Dưới đây là **Top 3 vấn đề khả thi nhất, dễ giải quyết và 
 * **AI hypothesis:** AI đóng vai trò làm "Người đánh giá năng lực nhanh" thông qua 3 câu hỏi trắc nghiệm đầu vào, sau đó tự động phân loại người dùng (Beginner/Intermediate/Advanced) và đề xuất danh sách bài đọc/video được gán thẻ độ khó tương xứng.
 * **Quick gut:** **Workflow** (Hệ thống điều phối tuyến tính: Nhận input -> Đánh giá phân loại -> Trích xuất đề xuất).
 
----
+### Draft current workflow
 
-### ┌──────────────────────────────────────────────┐
-### │ PROBLEM CARD #2                              │
-### │                                              │
-### │ Problem 1 câu: Sinh viên bị kẹt bài tập lớn │
-### │ ban đêm khi tự học mà không có trợ giảng/    │
-### │ giáo viên giải đáp thắc mắc ngay lập tức.    │
-### │                                              │
-### │ Ai đang đau? Sinh viên tự học ban đêm        │
-### │                                              │
-### │ Workflow hiện tại:                           │
-### │ 1. Đọc đề bài → 2. Viết code bị lỗi →        │
-### │ 3. Tra cứu Google → 4. Đợi sáng mai hỏi TA. │
-### │                                              │
-### │ Bước nghẽn nhất: Bước 3 & 4 (Đợi 8-12 tiếng) │
-### │                                              │
-### │ Đo thành công bằng gì? Thời gian nhận được   │
-### │ câu trả lời gợi ý sửa lỗi dưới 1 phút.       │
-### │                                              │
-### │ Quick gut: □ No AI □ Rule  Workflow         │
-### │            □ Agent □ Chưa biết               │
-### └──────────────────────────────────────────────┘
+```text
+CURRENT STATE — 55 phút
+
+[1 Gõ từ khóa tìm tài liệu trên Google: 5']
+→ [2 Đọc lướt qua 4-5 tài liệu khác nhau: 20']
+→ [3 Thực hành viết code chạy thử: 20']  <-- bottleneck
+→ [4 Phát hiện tài liệu quá khó hoặc quá dễ: 10']
+```
+
+### Draft future workflow
+
+```text
+FUTURE STATE — 13 phút
+
+[1 Sinh viên trả lời nhanh 3 câu hỏi trắc nghiệm: 2']
+→ [2 AI đánh giá năng lực & Phân loại cấp độ: 1']
+→ [3 AI đề xuất danh sách tài liệu khớp trình độ: 2']
+→ [4 Sinh viên đọc tài liệu đề xuất và thực hành: 5']
+→ [5 Sinh viên phản hồi (đánh giá sao) về độ khó: 3']  <-- human boundary
+
+Fallback: AI đề xuất không đúng → Sinh viên tự lọc tài liệu thủ công.
+```
+
+---
 
 **Chi tiết Card #2 (Trợ lý học tập 24/7 chuyên biệt cho phòng học):**
 * **Problem 1 câu:** Sinh viên bị tắc nghẽn khi tự làm bài tập lập trình vào ban đêm và phải mất nhiều tiếng chờ đợi đến sáng hôm sau để nhận hỗ trợ từ trợ giảng (TA).
@@ -105,29 +85,32 @@ Dưới đây là **Top 3 vấn đề khả thi nhất, dễ giải quyết và 
 * **AI hypothesis:** Dựng một chatbot RAG (Retrieval-Augmented Generation) được huấn luyện trên tài liệu bài giảng, syllabus và các lỗi thường gặp của khóa học để giải thích bài tập và gợi ý sửa lỗi code (không cho chép code trực tiếp, chỉ định hướng tư duy).
 * **Quick gut:** **Workflow** (Quy trình RAG: Nhận câu hỏi -> Tìm kiếm ngữ cảnh trong tài liệu -> Sinh câu trả lời định hướng).
 
----
+### Draft current workflow
 
-### ┌──────────────────────────────────────────────┐
-### │ PROBLEM CARD #3                              │
-### │                                              │
-### │ Problem 1 câu: Người mới tập gym mất nhiều  │
-### │ thời gian tự mày mò thiết kế lịch tập và     │
-### │ chế độ ăn phù hợp với thể trạng cá nhân.     │
-### │                                              │
-### │ Ai đang đau? Người mới bắt đầu tập gym       │
-### │                                              │
-### │ Workflow hiện tại:                           │
-### │ 1. Search bài tập → 2. Lắp ghép lịch tập →  │
-### │ 3. Tập thử → 4. Bị quá tải/chấn thương.      │
-### │                                              │
-### │ Bước nghẽn nhất: Bước 2 & 4 (Mất 60 phút)    │
-### │                                              │
-### │ Đo thành công bằng gì? Có ngay lịch tập cá   │
-### │ nhân hóa trong 2 phút, giảm tỷ lệ bỏ tập.    │
-### │                                              │
-### │ Quick gut: □ No AI □ Rule  Workflow         │
-### │            □ Agent □ Chưa biết               │
-### └──────────────────────────────────────────────┘
+```text
+CURRENT STATE — 630 phút (10.5 tiếng)
+
+[1 Đọc đề bài tập và viết code nháp: 20']
+→ [2 Chạy thử nghiệm và gặp lỗi không rõ nguyên nhân: 10']
+→ [3 Tự tra cứu trên Google/StackOverflow: 30']
+→ [4 Đăng lỗi lên Discord lớp học và chờ đợi phản hồi: 570']  <-- bottleneck
+```
+
+### Draft future workflow
+
+```text
+FUTURE STATE — 32 phút
+
+[1 Đọc đề bài tập và viết code nháp: 20']
+→ [2 Chạy thử nghiệm và gặp lỗi không rõ nguyên nhân: 5']
+→ [3 Nhập câu hỏi lỗi vào chatbot AI RAG: 2']
+→ [4 AI phân tích tài liệu và gợi ý hướng sửa lỗi: 2']
+→ [5 Sinh viên tự đọc giải pháp và chỉnh sửa code: 3']  <-- human boundary
+
+Fallback: AI giải thích không hiểu hoặc sai hướng → Sinh viên đăng lên Discord để TA hỗ trợ thủ công.
+```
+
+---
 
 **Chi tiết Card #3 (Lịch trình Gym cá nhân hóa):**
 * **Problem 1 câu:** Người mới đi tập gym không biết thiết kế lịch tập và bài tập phù hợp với thể trạng hiện tại dẫn đến tập luyện không hiệu quả hoặc chấn thương.
@@ -144,6 +127,30 @@ Dưới đây là **Top 3 vấn đề khả thi nhất, dễ giải quyết và 
 * **Non-AI alternative:** Thuê huấn luyện viên cá nhân (PT) với chi phí cực kỳ đắt đỏ (khoảng 5-10 triệu/tháng), vượt quá khả năng tài chính của sinh viên.
 * **AI hypothesis:** AI thu thập dữ liệu về: chiều cao, cân nặng, mục tiêu (tăng cơ/giảm mỡ), số buổi tập/tuần và trang thiết bị hiện có của phòng gym, sau đó tự động thiết kế lộ trình tập chi tiết từng ngày kèm hướng dẫn kỹ thuật.
 * **Quick gut:** **Workflow** (Hệ thống chuyển đổi dữ liệu thể trạng thành lịch trình có cấu trúc).
+
+### Draft current workflow
+
+```text
+CURRENT STATE — 75 phút
+
+[1 Lên mạng tìm kiếm video hướng dẫn tập gym: 20']
+→ [2 Tự lắp ghép các bài tập thành lịch tập tuần: 15']
+→ [3 Ra phòng gym tập thử nghiệm: 30']
+→ [4 Bị đau mỏi quá mức hoặc chấn thương nhẹ: 10']  <-- bottleneck
+```
+
+### Draft future workflow
+
+```text
+FUTURE STATE — 34 phút
+
+[1 Nhập thông số thể trạng và mục tiêu vào AI: 2']
+→ [2 AI thiết kế lịch tập và chế độ ăn chi tiết: 2']
+→ [3 Người tập đọc kỹ hướng dẫn tư thế tập an toàn: 15']  <-- human boundary
+→ [4 Thực hiện bài tập tại phòng gym theo lịch: 15']
+
+Fallback: Lịch tập AI gợi ý quá nặng hoặc chấn thương → Người tập giảm mức tạ hoặc tham khảo ý kiến chuyên gia.
+```
 
 ---
 
