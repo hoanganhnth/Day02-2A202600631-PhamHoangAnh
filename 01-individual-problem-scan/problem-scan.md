@@ -44,28 +44,35 @@ Dưới đây là **Top 3 vấn đề khả thi nhất, dễ giải quyết và 
 
 ### Draft current workflow
 
-```text
-CURRENT STATE — 55 phút
+```mermaid
+graph TD
+    A([Bắt đầu]) --> B["1. Gõ từ khóa tìm tài liệu trên Google<br/>⏱ 5 phút"]
+    B --> C["2. Đọc lướt qua 4-5 tài liệu khác nhau<br/>⏱ 20 phút"]
+    C --> D["3. Thực hành viết code chạy thử<br/>🔴 BOTTLENECK<br/>⏱ 20 phút"]
+    D --> E["4. Phát hiện tài liệu quá khó hoặc quá dễ<br/>⏱ 10 phút"]
+    E --> F([Kết thúc])
 
-[1 Gõ từ khóa tìm tài liệu trên Google: 5']
-→ [2 Đọc lướt qua 4-5 tài liệu khác nhau: 20']
-→ [3 Thực hành viết code chạy thử: 20']  <-- bottleneck
-→ [4 Phát hiện tài liệu quá khó hoặc quá dễ: 10']
+    style D fill:#ffcccc,stroke:#ff0000,stroke-width:2px
 ```
 
 ### Draft future workflow
 
-```text
-FUTURE STATE — 13 phút
+```mermaid
+graph TD
+    A([Bắt đầu]) --> B["1. Trả lời 3 câu hỏi trắc nghiệm<br/>⏱ 2 phút"]
+    B --> C["2. AI: Đánh giá năng lực & phân loại<br/>🟢 AI STEP<br/>⏱ 1 phút"]
+    C --> D["3. AI: Đề xuất tài liệu khớp trình độ<br/>🟢 AI STEP<br/>⏱ 2 phút"]
+    D --> E["4. Sinh viên đọc & thực hành<br/>⏱ 5 phút"]
+    E --> F["5. Phản hồi đánh giá độ khó<br/>🔵 HUMAN BOUNDARY<br/>⏱ 3 phút"]
+    F --> G([Kết thúc])
 
-[1 Sinh viên trả lời nhanh 3 câu hỏi trắc nghiệm: 2']
-→ [2 AI đánh giá năng lực & Phân loại cấp độ: 1']
-→ [3 AI đề xuất danh sách tài liệu khớp trình độ: 2']
-→ [4 Sinh viên đọc tài liệu đề xuất và thực hành: 5']
-→ [5 Sinh viên phản hồi (đánh giá sao) về độ khó: 3']  <-- human boundary
-
-Fallback: AI đề xuất không đúng → Sinh viên tự lọc tài liệu thủ công.
+    style C fill:#d4edda,stroke:#28a745,stroke-width:2px
+    style D fill:#d4edda,stroke:#28a745,stroke-width:2px
+    style F fill:#cce5ff,stroke:#004085,stroke-width:2px
 ```
+
+> [!NOTE]
+> **Fallback:** Nếu AI đề xuất không đúng trình độ, sinh viên sẽ quay lại tự lọc tài liệu thủ công.
 
 ---
 
@@ -87,28 +94,34 @@ Fallback: AI đề xuất không đúng → Sinh viên tự lọc tài liệu th
 
 ### Draft current workflow
 
-```text
-CURRENT STATE — 630 phút (10.5 tiếng)
+```mermaid
+graph TD
+    A([Bắt đầu]) --> B["1. Đọc đề bài tập & viết code nháp<br/>⏱ 20 phút"]
+    B --> C["2. Chạy thử gặp lỗi không rõ nguyên nhân<br/>⏱ 10 phút"]
+    C --> D["3. Tự tra cứu Google/StackOverflow<br/>⏱ 30 phút"]
+    D --> E["4. Đăng lỗi lên Discord & chờ phản hồi<br/>🔴 BOTTLENECK<br/>⏱ 570 phút"]
+    E --> F([Kết thúc])
 
-[1 Đọc đề bài tập và viết code nháp: 20']
-→ [2 Chạy thử nghiệm và gặp lỗi không rõ nguyên nhân: 10']
-→ [3 Tự tra cứu trên Google/StackOverflow: 30']
-→ [4 Đăng lỗi lên Discord lớp học và chờ đợi phản hồi: 570']  <-- bottleneck
+    style E fill:#ffcccc,stroke:#ff0000,stroke-width:2px
 ```
 
 ### Draft future workflow
 
-```text
-FUTURE STATE — 32 phút
+```mermaid
+graph TD
+    A([Bắt đầu]) --> B["1. Đọc đề bài tập & viết code nháp<br/>⏱ 20 phút"]
+    B --> C["2. Chạy thử gặp lỗi không rõ nguyên nhân<br/>⏱ 5 phút"]
+    C --> D["3. Nhập câu hỏi lỗi vào chatbot AI RAG<br/>⏱ 2 phút"]
+    D --> E["4. AI: Phân tích tài liệu & gợi ý hướng sửa lỗi<br/>🟢 AI STEP<br/>⏱ 2 phút"]
+    E --> F["5. Tự đọc giải pháp & chỉnh sửa code<br/>🔵 HUMAN BOUNDARY<br/>⏱ 3 phút"]
+    F --> G([Kết thúc])
 
-[1 Đọc đề bài tập và viết code nháp: 20']
-→ [2 Chạy thử nghiệm và gặp lỗi không rõ nguyên nhân: 5']
-→ [3 Nhập câu hỏi lỗi vào chatbot AI RAG: 2']
-→ [4 AI phân tích tài liệu và gợi ý hướng sửa lỗi: 2']
-→ [5 Sinh viên tự đọc giải pháp và chỉnh sửa code: 3']  <-- human boundary
-
-Fallback: AI giải thích không hiểu hoặc sai hướng → Sinh viên đăng lên Discord để TA hỗ trợ thủ công.
+    style E fill:#d4edda,stroke:#28a745,stroke-width:2px
+    style F fill:#cce5ff,stroke:#004085,stroke-width:2px
 ```
+
+> [!NOTE]
+> **Fallback:** Nếu AI giải thích không hiểu hoặc đi sai hướng, sinh viên sẽ đăng lỗi lên Discord lớp học để TA hỗ trợ thủ công.
 
 ---
 
@@ -130,27 +143,33 @@ Fallback: AI giải thích không hiểu hoặc sai hướng → Sinh viên đă
 
 ### Draft current workflow
 
-```text
-CURRENT STATE — 75 phút
+```mermaid
+graph TD
+    A([Bắt đầu]) --> B["1. Lên mạng tìm video hướng dẫn tập gym<br/>⏱ 20 phút"]
+    B --> C["2. Tự lắp ghép bài tập thành lịch tuần<br/>⏱ 15 phút"]
+    C --> D["3. Ra phòng gym tập thử nghiệm<br/>⏱ 30 phút"]
+    D --> E["4. Bị đau mỏi quá mức hoặc chấn thương<br/>🔴 BOTTLENECK<br/>⏱ 10 phút"]
+    E --> F([Kết thúc])
 
-[1 Lên mạng tìm kiếm video hướng dẫn tập gym: 20']
-→ [2 Tự lắp ghép các bài tập thành lịch tập tuần: 15']
-→ [3 Ra phòng gym tập thử nghiệm: 30']
-→ [4 Bị đau mỏi quá mức hoặc chấn thương nhẹ: 10']  <-- bottleneck
+    style E fill:#ffcccc,stroke:#ff0000,stroke-width:2px
 ```
 
 ### Draft future workflow
 
-```text
-FUTURE STATE — 34 phút
+```mermaid
+graph TD
+    A([Bắt đầu]) --> B["1. Nhập thông số thể trạng & mục tiêu<br/>⏱ 2 phút"]
+    B --> C["2. AI: Thiết kế lịch tập & dinh dưỡng chi tiết<br/>🟢 AI STEP<br/>⏱ 2 phút"]
+    C --> D["3. Đọc kỹ hướng dẫn tư thế tập an toàn<br/>🔵 HUMAN BOUNDARY<br/>⏱ 15 phút"]
+    D --> E["4. Thực hiện tập tại phòng gym theo lịch<br/>⏱ 15 phút"]
+    E --> F([Kết thúc])
 
-[1 Nhập thông số thể trạng và mục tiêu vào AI: 2']
-→ [2 AI thiết kế lịch tập và chế độ ăn chi tiết: 2']
-→ [3 Người tập đọc kỹ hướng dẫn tư thế tập an toàn: 15']  <-- human boundary
-→ [4 Thực hiện bài tập tại phòng gym theo lịch: 15']
-
-Fallback: Lịch tập AI gợi ý quá nặng hoặc chấn thương → Người tập giảm mức tạ hoặc tham khảo ý kiến chuyên gia.
+    style C fill:#d4edda,stroke:#28a745,stroke-width:2px
+    style D fill:#cce5ff,stroke:#004085,stroke-width:2px
 ```
+
+> [!NOTE]
+> **Fallback:** Nếu lịch tập AI gợi ý quá nặng hoặc người tập thấy đau khớp chấn thương, người tập sẽ chủ động giảm mức tạ hoặc tham khảo ý kiến chuyên gia/PT phòng gym.
 
 ---
 
